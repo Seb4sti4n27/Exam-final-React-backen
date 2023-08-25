@@ -7,18 +7,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Instrumento {
+public class Idioma {
 
 	private @Id @GeneratedValue Long id;
 	private String nombre;
-	private String categoria;
+	private String estado;
 	private String descripcion;
 
-	private Instrumento() {}
+	private Idioma() {}
 
-	public Instrumento(String nombre, String categoria, String descripcion) {
+	public Idioma(String nombre, String estado, String descripcion) {
 		this.nombre = nombre;
-		this.categoria = categoria;
+		this.estado = estado;
 		this.descripcion = descripcion;
 	}
 
@@ -28,26 +28,26 @@ public class Instrumento {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		Instrumento instrumento = (Instrumento) o;
-		return Objects.equals(id, instrumento.id) &&
-			Objects.equals(nombre, instrumento.nombre) &&
-			Objects.equals(categoria, instrumento.categoria) &&
-			Objects.equals(descripcion, instrumento.descripcion);
+		Idioma idioma = (Idioma) o;
+		return Objects.equals(id, idioma.id) &&
+			Objects.equals(nombre, idioma.nombre) &&
+			Objects.equals(estado, idioma.estado) &&
+			Objects.equals(descripcion, idioma.descripcion);
 	}
 
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(id, nombre, categoria, descripcion);
+		return Objects.hash(id, nombre, estado, descripcion);
 	}
 
 
 	@Override
 	public String toString() {
-		return "Instrumento{" +
+		return "Idioma{" +
 			"id=" + id +
 			", nombre='" + nombre + '\'' +
-			", categoria='" + categoria + '\'' +
+			", estado='" + estado + '\'' +
 			", descripcion='" + descripcion + '\'' +
 			'}';
 	}
@@ -68,12 +68,12 @@ public class Instrumento {
 		this.nombre = nombre;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public String getDescripcion() {

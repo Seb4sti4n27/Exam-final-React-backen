@@ -40840,37 +40840,37 @@ var _require = __webpack_require__(/*! react-router-dom */ "./node_modules/react
   createBrowserRouter = _require.createBrowserRouter,
   RouterProvider = _require.RouterProvider;
 var HomePage = __webpack_require__(/*! ./pages/home */ "./src/main/js/pages/home.js");
-var NuevoMusicoPage = __webpack_require__(/*! ./pages/nuevo-musico */ "./src/main/js/pages/nuevo-musico.js");
-var VerInstrumentoPage = __webpack_require__(/*! ./pages/ver-instrumento */ "./src/main/js/pages/ver-instrumento.js");
-var NuevoInstrumentoPage = __webpack_require__(/*! ./pages/nuevo-instrumento */ "./src/main/js/pages/nuevo-instrumento.js");
-var VerMusicoPage = __webpack_require__(/*! ./pages/ver-musico */ "./src/main/js/pages/ver-musico.js");
-var EditarInstrumentoPage = __webpack_require__(/*! ./pages/editar-instrumento */ "./src/main/js/pages/editar-instrumento.js");
-var VerBandaPage = __webpack_require__(/*! ./pages/ver-banda */ "./src/main/js/pages/ver-banda.js");
-var NuevoIntegrantePage = __webpack_require__(/*! ./pages/nuevo-integrante */ "./src/main/js/pages/nuevo-integrante.js");
+var VerIdiomaPage = __webpack_require__(/*! ./pages/ver-idioma */ "./src/main/js/pages/ver-idioma.js");
+var VerGeneroPage = __webpack_require__(/*! ./pages/ver-genero */ "./src/main/js/pages/ver-genero.js");
+var NuevoGeneroPage = __webpack_require__(/*! ./pages/nuevo-genero */ "./src/main/js/pages/nuevo-genero.js");
+var NuevoIdiomaPage = __webpack_require__(/*! ./pages/nuevo-idioma */ "./src/main/js/pages/nuevo-idioma.js");
+var EditarIdiomaPage = __webpack_require__(/*! ./pages/editar-idioma */ "./src/main/js/pages/editar-idioma.js");
+var VerEditorialPage = __webpack_require__(/*! ./pages/ver-editorial */ "./src/main/js/pages/ver-editorial.js");
+var NuevoLibroPage = __webpack_require__(/*! ./pages/nuevo-libro */ "./src/main/js/pages/nuevo-libro.js");
 var router = createBrowserRouter([{
   path: '/',
   element: /*#__PURE__*/React.createElement(HomePage, null)
 }, {
-  path: '/ver-instrumento/:id',
-  element: /*#__PURE__*/React.createElement(VerInstrumentoPage, null)
+  path: '/ver-idioma/:id',
+  element: /*#__PURE__*/React.createElement(VerIdiomaPage, null)
 }, {
-  path: '/nuevo-instrumento',
-  element: /*#__PURE__*/React.createElement(NuevoInstrumentoPage, null)
+  path: '/nuevo-idioma',
+  element: /*#__PURE__*/React.createElement(NuevoIdiomaPage, null)
 }, {
-  path: '/ver-musico/:id',
-  element: /*#__PURE__*/React.createElement(VerMusicoPage, null)
+  path: '/ver-genero/:id',
+  element: /*#__PURE__*/React.createElement(VerGeneroPage, null)
 }, {
-  path: '/nuevo-musico',
-  element: /*#__PURE__*/React.createElement(NuevoMusicoPage, null)
+  path: '/nuevo-genero',
+  element: /*#__PURE__*/React.createElement(NuevoGeneroPage, null)
 }, {
-  path: '/editar-instrumento/:id',
-  element: /*#__PURE__*/React.createElement(EditarInstrumentoPage, null)
+  path: '/editar-idioma/:id',
+  element: /*#__PURE__*/React.createElement(EditarIdiomaPage, null)
 }, {
-  path: '/ver-banda/:id',
-  element: /*#__PURE__*/React.createElement(VerBandaPage, null)
+  path: '/ver-editorial/:id',
+  element: /*#__PURE__*/React.createElement(VerEditorialPage, null)
 }, {
-  path: '/ver-banda/:id/nuevo-integrante',
-  element: /*#__PURE__*/React.createElement(NuevoIntegrantePage, null)
+  path: '/ver-editorial/:id/nuevo-libro',
+  element: /*#__PURE__*/React.createElement(NuevoLibroPage, null)
 }]);
 ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(RouterProvider, {
   router: router
@@ -40907,10 +40907,10 @@ module.exports = rest.wrap(mime, {
 
 /***/ }),
 
-/***/ "./src/main/js/pages/editar-instrumento.js":
-/*!*************************************************!*\
-  !*** ./src/main/js/pages/editar-instrumento.js ***!
-  \*************************************************/
+/***/ "./src/main/js/pages/editar-idioma.js":
+/*!********************************************!*\
+  !*** ./src/main/js/pages/editar-idioma.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40934,27 +40934,27 @@ var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/reac
   Link = _require2.Link,
   useParams = _require2.useParams;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var EditarInstrumentoPage = function EditarInstrumentoPage() {
+var EditarIdiomaPage = function EditarIdiomaPage() {
   var _useState = useState({}),
     _useState2 = _slicedToArray(_useState, 2),
-    instrumento = _useState2[0],
-    setInstrumento = _useState2[1];
+    idioma = _useState2[0],
+    setIdioma = _useState2[1];
   var _useParams = useParams(),
     id = _useParams.id;
   useEffect(function () {
     client({
       method: 'GET',
-      path: '/api/instrumentos/' + id
+      path: '/api/idiomas/' + id
     }).done(function (response) {
-      return setInstrumento(response.entity);
+      return setIdioma(response.entity);
     });
   }, []);
   var handleSubmit = function handleSubmit(evento) {
     evento.preventDefault();
     client({
       method: 'GET',
-      path: '/api/instrumentos/' + id,
-      entity: instrumento,
+      path: '/api/idiomas/' + id,
+      entity: idioma,
       headers: {
         'Content-Type': 'application/json'
       }
@@ -40962,44 +40962,44 @@ var EditarInstrumentoPage = function EditarInstrumentoPage() {
       window.location = '/';
     });
   };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Editar Instrumento"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Editar Idioma"), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/React.createElement("label", null, "Nombre"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     id: "nombre",
     name: "nombre",
-    value: instrumento.nombre,
+    value: idioma.nombre,
     onChange: function onChange(e) {
-      return setInstrumento(_objectSpread(_objectSpread({}, instrumento), {}, {
+      return setIdioma(_objectSpread(_objectSpread({}, idioma), {}, {
         nombre: e.target.value
       }));
     }
-  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Categoria"), /*#__PURE__*/React.createElement("input", {
+  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Estado"), /*#__PURE__*/React.createElement("input", {
     type: "text",
-    id: "categoria",
-    name: "categoria",
-    value: instrumento.categoria,
+    id: "estado",
+    name: "estado",
+    value: idioma.estado,
     onChange: function onChange(e) {
-      return setInstrumento(_objectSpread(_objectSpread({}, instrumento), {}, {
-        categoria: e.target.value
+      return setIdioma(_objectSpread(_objectSpread({}, idioma), {}, {
+        estado: e.target.value
       }));
     }
   }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Descripcion"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     id: "descripcion",
     name: "descripcion",
-    value: instrumento.descripcion,
+    value: idioma.descripcion,
     onChange: function onChange(e) {
-      return setInstrumento(_objectSpread(_objectSpread({}, instrumento), {}, {
+      return setIdioma(_objectSpread(_objectSpread({}, idioma), {}, {
         descripcion: e.target.value
       }));
     }
   }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "submit",
-    value: "Editar Instrumento"
+    value: "Editar Idioma"
   })));
 };
-module.exports = EditarInstrumentoPage;
+module.exports = EditarIdiomaPage;
 
 /***/ }),
 
@@ -41035,9 +41035,9 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, HomePage);
     _this = _super.call(this, props);
     _this.state = {
-      instrumentos: [],
-      musicos: [],
-      bandas: []
+      idiomas: [],
+      generos: [],
+      editoriales: []
     };
     return _this;
   }
@@ -41047,33 +41047,33 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
       client({
         method: 'GET',
-        path: '/api/instrumentos'
+        path: '/api/idiomas'
       }).done(function (response) {
         _this2.setState({
-          instrumentos: response.entity._embedded.instrumentos
+          idiomas: response.entity._embedded.idiomas
         });
       });
       client({
         method: 'GET',
-        path: '/api/musicos'
+        path: '/api/generos'
       }).done(function (response) {
         _this2.setState({
-          musicos: response.entity._embedded.musicos
+          generos: response.entity._embedded.generos
         });
       });
       client({
         method: 'GET',
-        path: '/api/bandas'
+        path: '/api/editoriales'
       }).done(function (response) {
         _this2.setState({
-          bandas: response.entity._embedded.bandas
+          editoriales: response.entity._embedded.editoriales
         });
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Semana 13 App"), /*#__PURE__*/React.createElement("div", {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Examen Final Sobre una Editorial que almacena Libros"), /*#__PURE__*/React.createElement("div", {
         style: {
           "width": "100%",
           "display": "flex"
@@ -41083,35 +41083,33 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
           "width": "calc(100% / 3)"
         }
       }, /*#__PURE__*/React.createElement(Titulo, {
-        entidad: "Intrumentos",
-        emoji: "\uD83C\uDFB8"
-      }), /*#__PURE__*/React.createElement(InstrumentoList, {
-        instrumentos: this.state.instrumentos
+        entidad: "Idiomas",
+        emoji: "\uD83C\uDFEB"
+      }), /*#__PURE__*/React.createElement(IdiomaList, {
+        idiomas: this.state.idiomas
       }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nuevo-instrumento"
-      }, "Nuevo Instrumento")), /*#__PURE__*/React.createElement("div", {
+        to: "/nuevo-idioma"
+      }, "Nuevo Idiomas")), /*#__PURE__*/React.createElement("div", {
         style: {
           "width": "calc(100% / 3)"
         }
       }, /*#__PURE__*/React.createElement(Titulo, {
-        entidad: "Musicos",
-        emoji: "\uD83C\uDFB6"
-      }), /*#__PURE__*/React.createElement(MusicoList, {
-        musicos: this.state.musicos
+        entidad: "Generos",
+        emoji: "\uD83D\uDCDA"
+      }), /*#__PURE__*/React.createElement(GeneroList, {
+        generos: this.state.generos
       }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nuevo-musico"
-      }, "Nuevo M\xFAsico")), /*#__PURE__*/React.createElement("div", {
+        to: "/nuevo-genero"
+      }, "Nuevo Generos")), /*#__PURE__*/React.createElement("div", {
         style: {
           "width": "calc(100% / 3)"
         }
       }, /*#__PURE__*/React.createElement(Titulo, {
-        entidad: "Bandas",
-        emoji: "\uD83D\uDC69\uD83C\uDFFC\u200D\uD83C\uDFA4"
-      }), /*#__PURE__*/React.createElement(BandaList, {
-        bandas: this.state.bandas
-      }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nueva-banda"
-      }, "Nueva Banda"))));
+        entidad: "Editoriales",
+        emoji: "\uD83D\uDCD6"
+      }), /*#__PURE__*/React.createElement(EditorialList, {
+        editoriales: this.state.editoriales
+      }))));
     }
   }]);
   return HomePage;
@@ -41119,139 +41117,139 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
 var Titulo = function Titulo(props) {
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, props.emoji, " - ", props.entidad), /*#__PURE__*/React.createElement("hr", null), "Lista completa de ", props.entidad.toLowerCase());
 };
-var InstrumentoList = /*#__PURE__*/function (_React$Component2) {
-  _inherits(InstrumentoList, _React$Component2);
-  var _super2 = _createSuper(InstrumentoList);
-  function InstrumentoList() {
-    _classCallCheck(this, InstrumentoList);
+var IdiomaList = /*#__PURE__*/function (_React$Component2) {
+  _inherits(IdiomaList, _React$Component2);
+  var _super2 = _createSuper(IdiomaList);
+  function IdiomaList() {
+    _classCallCheck(this, IdiomaList);
     return _super2.apply(this, arguments);
   }
-  _createClass(InstrumentoList, [{
+  _createClass(IdiomaList, [{
     key: "render",
     value: function render() {
-      var instrumentos = this.props.instrumentos.map(function (instrumento) {
-        return /*#__PURE__*/React.createElement(Instrumento, {
-          key: instrumento._links.self.href,
-          instrumento: instrumento
+      var idiomas = this.props.idiomas.map(function (idioma) {
+        return /*#__PURE__*/React.createElement(Idioma, {
+          key: idioma._links.self.href,
+          idioma: idioma
         });
       });
       return /*#__PURE__*/React.createElement("table", {
         border: "1"
-      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Categor\xEDa"), /*#__PURE__*/React.createElement("th", null, "Acciones")), instrumentos));
+      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Estado"), /*#__PURE__*/React.createElement("th", null, "Acciones")), idiomas));
     }
   }]);
-  return InstrumentoList;
+  return IdiomaList;
 }(React.Component);
-var MusicoList = /*#__PURE__*/function (_React$Component3) {
-  _inherits(MusicoList, _React$Component3);
-  var _super3 = _createSuper(MusicoList);
-  function MusicoList() {
-    _classCallCheck(this, MusicoList);
+var GeneroList = /*#__PURE__*/function (_React$Component3) {
+  _inherits(GeneroList, _React$Component3);
+  var _super3 = _createSuper(GeneroList);
+  function GeneroList() {
+    _classCallCheck(this, GeneroList);
     return _super3.apply(this, arguments);
   }
-  _createClass(MusicoList, [{
+  _createClass(GeneroList, [{
     key: "render",
     value: function render() {
-      var musicos = this.props.musicos.map(function (musico) {
-        return /*#__PURE__*/React.createElement(Musico, {
-          key: musico._links.self.href,
-          musico: musico
+      var generos = this.props.generos.map(function (genero) {
+        return /*#__PURE__*/React.createElement(Genero, {
+          key: genero._links.self.href,
+          genero: genero
         });
       });
       return /*#__PURE__*/React.createElement("table", {
         border: "1"
-      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Acciones")), musicos));
+      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Acciones")), generos));
     }
   }]);
-  return MusicoList;
+  return GeneroList;
 }(React.Component);
-var BandaList = /*#__PURE__*/function (_React$Component4) {
-  _inherits(BandaList, _React$Component4);
-  var _super4 = _createSuper(BandaList);
-  function BandaList() {
-    _classCallCheck(this, BandaList);
+var EditorialList = /*#__PURE__*/function (_React$Component4) {
+  _inherits(EditorialList, _React$Component4);
+  var _super4 = _createSuper(EditorialList);
+  function EditorialList() {
+    _classCallCheck(this, EditorialList);
     return _super4.apply(this, arguments);
   }
-  _createClass(BandaList, [{
+  _createClass(EditorialList, [{
     key: "render",
     value: function render() {
-      var bandas = this.props.bandas.map(function (banda) {
-        return /*#__PURE__*/React.createElement(Banda, {
-          key: banda._links.self.href,
-          banda: banda
+      var editoriales = this.props.editoriales.map(function (editorial) {
+        return /*#__PURE__*/React.createElement(Editorial, {
+          key: editorial._links.self.href,
+          editorial: editorial
         });
       });
       return /*#__PURE__*/React.createElement("table", {
         border: "1"
-      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Acciones")), bandas));
+      }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Acciones")), editoriales));
     }
   }]);
-  return BandaList;
+  return EditorialList;
 }(React.Component);
-var Instrumento = /*#__PURE__*/function (_React$Component5) {
-  _inherits(Instrumento, _React$Component5);
-  var _super5 = _createSuper(Instrumento);
-  function Instrumento() {
-    _classCallCheck(this, Instrumento);
+var Idioma = /*#__PURE__*/function (_React$Component5) {
+  _inherits(Idioma, _React$Component5);
+  var _super5 = _createSuper(Idioma);
+  function Idioma() {
+    _classCallCheck(this, Idioma);
     return _super5.apply(this, arguments);
   }
-  _createClass(Instrumento, [{
+  _createClass(Idioma, [{
     key: "render",
     value: function render() {
-      var id = this.props.instrumento._links.self.href.split("/").slice(-1);
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.instrumento.nombre), /*#__PURE__*/React.createElement("td", null, this.props.instrumento.categoria), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
-        to: "/ver-instrumento/" + id
+      var id = this.props.idioma._links.self.href.split("/").slice(-1);
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.idioma.nombre), /*#__PURE__*/React.createElement("td", null, this.props.idioma.estado), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
+        to: "/ver-idioma/" + id
       }, "Ver"), " |", /*#__PURE__*/React.createElement(Link, {
-        to: "/editar-instrumento/" + id
+        to: "/editar-idioma/" + id
       }, "Editar")));
     }
   }]);
-  return Instrumento;
+  return Idioma;
 }(React.Component);
-var Musico = /*#__PURE__*/function (_React$Component6) {
-  _inherits(Musico, _React$Component6);
-  var _super6 = _createSuper(Musico);
-  function Musico() {
-    _classCallCheck(this, Musico);
+var Genero = /*#__PURE__*/function (_React$Component6) {
+  _inherits(Genero, _React$Component6);
+  var _super6 = _createSuper(Genero);
+  function Genero() {
+    _classCallCheck(this, Genero);
     return _super6.apply(this, arguments);
   }
-  _createClass(Musico, [{
+  _createClass(Genero, [{
     key: "render",
     value: function render() {
-      var id = this.props.musico._links.self.href.split("/").slice(-1);
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.musico.nombre), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
-        to: "/ver-musico/" + id
+      var id = this.props.genero._links.self.href.split("/").slice(-1);
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.genero.nombre), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
+        to: "/ver-genero/" + id
       }, "Ver")));
     }
   }]);
-  return Musico;
+  return Genero;
 }(React.Component);
-var Banda = /*#__PURE__*/function (_React$Component7) {
-  _inherits(Banda, _React$Component7);
-  var _super7 = _createSuper(Banda);
-  function Banda() {
-    _classCallCheck(this, Banda);
+var Editorial = /*#__PURE__*/function (_React$Component7) {
+  _inherits(Editorial, _React$Component7);
+  var _super7 = _createSuper(Editorial);
+  function Editorial() {
+    _classCallCheck(this, Editorial);
     return _super7.apply(this, arguments);
   }
-  _createClass(Banda, [{
+  _createClass(Editorial, [{
     key: "render",
     value: function render() {
-      var id = this.props.banda._links.self.href.split("/").slice(-1);
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.banda.nombre), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
-        to: "/ver-banda/" + id
+      var id = this.props.editorial._links.self.href.split("/").slice(-1);
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.editorial.nombre), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Link, {
+        to: "/ver-editorial/" + id
       }, "Ver")));
     }
   }]);
-  return Banda;
+  return Editorial;
 }(React.Component);
 module.exports = HomePage;
 
 /***/ }),
 
-/***/ "./src/main/js/pages/nuevo-instrumento.js":
-/*!************************************************!*\
-  !*** ./src/main/js/pages/nuevo-instrumento.js ***!
-  \************************************************/
+/***/ "./src/main/js/pages/nuevo-genero.js":
+/*!*******************************************!*\
+  !*** ./src/main/js/pages/nuevo-genero.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41267,15 +41265,74 @@ var _require = __webpack_require__(/*! react */ "./node_modules/react/index.js")
 var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
   Link = _require2.Link;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var NuevoInstrumentoPage = function NuevoInstrumentoPage() {
+var NuevoGeneroPage = function NuevoGeneroPage() {
+  var _useState = useState(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    nombre = _useState2[0],
+    setNombre = _useState2[1];
+  var handleSubmit = function handleSubmit(evento) {
+    evento.preventDefault();
+    client({
+      method: 'POST',
+      path: '/api/generos',
+      entity: {
+        nombre: nombre
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).done(function () {
+      window.location = '/';
+    });
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Genero"), /*#__PURE__*/React.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/React.createElement("label", null, "Nombre"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    id: "nombre",
+    name: "nombre",
+    onChange: function onChange(e) {
+      return setNombre(e.target.value);
+    }
+  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+    type: "submit",
+    value: "Nuevo Genero"
+  })), /*#__PURE__*/React.createElement(Link, {
+    to: "/"
+  }, "Volver"));
+};
+module.exports = NuevoGeneroPage;
+
+/***/ }),
+
+/***/ "./src/main/js/pages/nuevo-idioma.js":
+/*!*******************************************!*\
+  !*** ./src/main/js/pages/nuevo-idioma.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _require = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
+  useState = _require.useState;
+var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
+  Link = _require2.Link;
+var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
+var NuevoIdiomaPage = function NuevoIdiomaPage() {
   var _useState = useState(''),
     _useState2 = _slicedToArray(_useState, 2),
     nombre = _useState2[0],
     setNombre = _useState2[1];
   var _useState3 = useState(''),
     _useState4 = _slicedToArray(_useState3, 2),
-    categoria = _useState4[0],
-    setCategoria = _useState4[1];
+    estado = _useState4[0],
+    setEstado = _useState4[1];
   var _useState5 = useState(''),
     _useState6 = _slicedToArray(_useState5, 2),
     descripcion = _useState6[0],
@@ -41284,10 +41341,10 @@ var NuevoInstrumentoPage = function NuevoInstrumentoPage() {
     evento.preventDefault();
     client({
       method: 'POST',
-      path: '/api/instrumentos',
+      path: '/api/idiomas',
       entity: {
         nombre: nombre,
-        categoria: categoria,
+        estado: estado,
         descripcion: descripcion
       },
       headers: {
@@ -41297,7 +41354,7 @@ var NuevoInstrumentoPage = function NuevoInstrumentoPage() {
       window.location = '/';
     });
   };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Instrumento"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Idioma"), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/React.createElement("label", null, "Nombre"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "text",
@@ -41306,12 +41363,12 @@ var NuevoInstrumentoPage = function NuevoInstrumentoPage() {
     onChange: function onChange(e) {
       return setNombre(e.target.value);
     }
-  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Categor\xEDa"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Estado"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "text",
-    id: "categoria",
-    name: "categoria",
+    id: "estado",
+    name: "estado",
     onChange: function onChange(e) {
-      return setCategoria(e.target.value);
+      return setEstado(e.target.value);
     }
   }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Descripci\xF3n"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "text",
@@ -41322,19 +41379,19 @@ var NuevoInstrumentoPage = function NuevoInstrumentoPage() {
     }
   }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "submit",
-    value: "Nuevo Instrumento"
+    value: "Nuevo Idioma"
   })), /*#__PURE__*/React.createElement(Link, {
     to: "/"
   }, "Volver"));
 };
-module.exports = NuevoInstrumentoPage;
+module.exports = NuevoIdiomaPage;
 
 /***/ }),
 
-/***/ "./src/main/js/pages/nuevo-integrante.js":
-/*!***********************************************!*\
-  !*** ./src/main/js/pages/nuevo-integrante.js ***!
-  \***********************************************/
+/***/ "./src/main/js/pages/nuevo-libro.js":
+/*!******************************************!*\
+  !*** ./src/main/js/pages/nuevo-libro.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41352,34 +41409,34 @@ var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/reac
   Link = _require2.Link,
   useParams = _require2.useParams;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var NuevoIntegrantePage = function NuevoIntegrantePage() {
+var NuevoLibroPage = function NuevoLibroPage() {
   var _useParams = useParams(),
     id = _useParams.id;
   var _useState = useState([]),
     _useState2 = _slicedToArray(_useState, 2),
-    musicos = _useState2[0],
-    setMusicos = _useState2[1];
+    generos = _useState2[0],
+    setGeneros = _useState2[1];
   var _useState3 = useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    instrumentos = _useState4[0],
-    setInstrumentos = _useState4[1];
+    idiomas = _useState4[0],
+    setIdiomas = _useState4[1];
   var _useState5 = useState(''),
     _useState6 = _slicedToArray(_useState5, 2),
-    idMusico = _useState6[0],
-    setIdMusico = _useState6[1];
+    idGenero = _useState6[0],
+    setIdGenero = _useState6[1];
   var _useState7 = useState(''),
     _useState8 = _slicedToArray(_useState7, 2),
-    idInstrumento = _useState8[0],
-    setIdInstrumento = _useState8[1];
+    idIdioma = _useState8[0],
+    setIdioma = _useState8[1];
   var handleSubmit = function handleSubmit(evento) {
     evento.preventDefault();
     client({
       method: 'POST',
-      path: '/api/integrantes',
+      path: '/api/libros',
       entity: {
-        banda: 'http://localhost:8080/api/bandas/' + id,
-        musico: 'http://localhost:8080/api/musicos/' + idMusico,
-        instrumento: 'http://localhost:8080/api/instrumentos/' + idInstrumento
+        editorial: 'http://localhost:8080/api/editoriales/' + id,
+        genero: 'http://localhost:8080/api/generos/' + idGenero,
+        idioma: 'http://localhost:8080/api/idiomas/' + idIdioma
       },
       headers: {
         'Content-Type': 'application/json'
@@ -41391,119 +41448,60 @@ var NuevoIntegrantePage = function NuevoIntegrantePage() {
   useEffect(function () {
     client({
       method: 'GET',
-      path: '/api/musicos'
+      path: '/api/generos'
     }).done(function (response) {
-      setMusicos(response.entity._embedded.musicos);
+      setGeneros(response.entity._embedded.generos);
     });
     client({
       method: 'GET',
-      path: '/api/instrumentos'
+      path: '/api/idiomas'
     }).done(function (response) {
-      setInstrumentos(response.entity._embedded.instrumentos);
+      setIdiomas(response.entity._embedded.idiomas);
     });
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Integrante"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Libro"), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/React.createElement("label", {
-    htmlFor: "musico"
-  }, "Musico "), /*#__PURE__*/React.createElement("select", {
-    name: "musico",
-    id: "musico",
+    htmlFor: "genero"
+  }, "Genero "), /*#__PURE__*/React.createElement("select", {
+    name: "genero",
+    id: "genero",
     onChange: function onChange(e) {
-      setIdMusico(e.target.value);
+      setIdGenero(e.target.value);
     }
-  }, musicos.map(function (musico) {
-    var value = musico._links.self.href.split('/').slice(-1);
+  }, generos.map(function (genero) {
+    var value = genero._links.self.href.split('/').slice(-1);
     return /*#__PURE__*/React.createElement("option", {
       key: value,
       value: value
-    }, "[", musico.nombre, "]");
-  })), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Instrumento "), /*#__PURE__*/React.createElement("select", {
-    name: "instrumento",
-    id: "instrumento",
+    }, "[", genero.nombre, "]");
+  })), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", null, "Idioma "), /*#__PURE__*/React.createElement("select", {
+    name: "idioma",
+    id: "idioma",
     onChange: function onChange(e) {
-      setIdInstrumento(e.target.value);
+      setIdioma(e.target.value);
     }
-  }, instrumentos.map(function (instrumento) {
-    var value = instrumento._links.self.href.split('/').slice(-1);
+  }, idiomas.map(function (idioma) {
+    var value = idioma._links.self.href.split('/').slice(-1);
     return /*#__PURE__*/React.createElement("option", {
       key: value,
       value: value
-    }, "(", instrumento.nombre, ")");
+    }, "(", idioma.nombre, ")");
   })), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "submit",
-    value: "Nuevo Integrante"
+    value: "Nuevo Libro"
   })), /*#__PURE__*/React.createElement(Link, {
     to: "/"
   }, "Volver"));
 };
-module.exports = NuevoIntegrantePage;
+module.exports = NuevoLibroPage;
 
 /***/ }),
 
-/***/ "./src/main/js/pages/nuevo-musico.js":
-/*!*******************************************!*\
-  !*** ./src/main/js/pages/nuevo-musico.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var _require = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
-  useState = _require.useState;
-var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
-  Link = _require2.Link;
-var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var NuevoMusicoPage = function NuevoMusicoPage() {
-  var _useState = useState(''),
-    _useState2 = _slicedToArray(_useState, 2),
-    nombre = _useState2[0],
-    setNombre = _useState2[1];
-  var handleSubmit = function handleSubmit(evento) {
-    evento.preventDefault();
-    client({
-      method: 'POST',
-      path: '/api/musicos',
-      entity: {
-        nombre: nombre
-      },
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).done(function () {
-      window.location = '/';
-    });
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo M\xFAsico"), /*#__PURE__*/React.createElement("form", {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/React.createElement("label", null, "Nombre"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    id: "nombre",
-    name: "nombre",
-    onChange: function onChange(e) {
-      return setNombre(e.target.value);
-    }
-  }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
-    type: "submit",
-    value: "Nuevo M\xFAsico"
-  })), /*#__PURE__*/React.createElement(Link, {
-    to: "/"
-  }, "Volver"));
-};
-module.exports = NuevoMusicoPage;
-
-/***/ }),
-
-/***/ "./src/main/js/pages/ver-banda.js":
-/*!****************************************!*\
-  !*** ./src/main/js/pages/ver-banda.js ***!
-  \****************************************/
+/***/ "./src/main/js/pages/ver-editorial.js":
+/*!********************************************!*\
+  !*** ./src/main/js/pages/ver-editorial.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41521,96 +41519,52 @@ var _require2 = __webpack_require__(/*! react */ "./node_modules/react/index.js"
   useState = _require2.useState,
   useEffect = _require2.useEffect;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var VerBandaPage = function VerBandaPage() {
+var VerEditorialPage = function VerEditorialPage() {
   var _useParams = useParams(),
     id = _useParams.id;
   var _useState = useState({}),
     _useState2 = _slicedToArray(_useState, 2),
-    banda = _useState2[0],
-    setBanda = _useState2[1];
+    editorial = _useState2[0],
+    setEditorial = _useState2[1];
   var _useState3 = useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    integrantes = _useState4[0],
-    setIntegrantes = _useState4[1];
+    libros = _useState4[0],
+    setLibros = _useState4[1];
   useEffect(function () {
     client({
       method: 'GET',
-      path: '/api/bandas/' + id
+      path: '/api/editoriales/' + id
     }).done(function (response) {
-      return setBanda(response.entity);
+      return setEditorial(response.entity);
     });
     client({
       method: 'GET',
-      path: '/api/bandas/' + id + '/formacion'
+      path: '/api/editoriales/' + id + '/formacion'
     }).done(function (response) {
-      return setIntegrantes(response.entity);
+      return setLibros(response.entity);
     });
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Banda"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Editorial"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
     border: "1"
-  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, banda.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "Formaci\xF3n"), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, editorial.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "Formaci\xF3n"), /*#__PURE__*/React.createElement("table", {
     border: "1"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Musico"), /*#__PURE__*/React.createElement("th", null, "Instrumento"))), /*#__PURE__*/React.createElement("tbody", null, integrantes.map(function (integrante) {
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Genero"), /*#__PURE__*/React.createElement("th", null, "Idioma"))), /*#__PURE__*/React.createElement("tbody", null, libros.map(function (libro) {
     return /*#__PURE__*/React.createElement("tr", {
-      key: integrante.ID
-    }, /*#__PURE__*/React.createElement("td", null, integrante.MUSICO), /*#__PURE__*/React.createElement("td", null, integrante.INSTRUMENTO));
+      key: libro.ID
+    }, /*#__PURE__*/React.createElement("td", null, libro.GENERO), /*#__PURE__*/React.createElement("td", null, libro.IDIOMA));
   }))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(Link, {
-    to: "/ver-banda/".concat(id, "/nuevo-integrante")
-  }, "Nuevo Integrante"), " |", /*#__PURE__*/React.createElement(Link, {
+    to: "/ver-editorial/".concat(id, "/nuevo-libro")
+  }, "Nuevo Libro"), " |", /*#__PURE__*/React.createElement(Link, {
     to: "/"
   }, "Volver"));
 };
-module.exports = VerBandaPage;
+module.exports = VerEditorialPage;
 
 /***/ }),
 
-/***/ "./src/main/js/pages/ver-instrumento.js":
-/*!**********************************************!*\
-  !*** ./src/main/js/pages/ver-instrumento.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var _require = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
-  Link = _require.Link,
-  useParams = _require.useParams;
-var _require2 = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
-  useState = _require2.useState,
-  useEffect = _require2.useEffect;
-var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var VerInstrumentoPage = function VerInstrumentoPage() {
-  var _useParams = useParams(),
-    id = _useParams.id;
-  var _useState = useState({}),
-    _useState2 = _slicedToArray(_useState, 2),
-    instrumento = _useState2[0],
-    setInstrumento = _useState2[1];
-  useEffect(function () {
-    client({
-      method: 'GET',
-      path: '/api/instrumentos/' + id
-    }).done(function (response) {
-      return setInstrumento(response.entity);
-    });
-  }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Instrumento"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, instrumento.nombre)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Categor\xEDa"), /*#__PURE__*/React.createElement("td", null, instrumento.categoria)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Descripci\xF3n"), /*#__PURE__*/React.createElement("td", null, instrumento.descripcion))), /*#__PURE__*/React.createElement(Link, {
-    to: "/"
-  }, "Volver"));
-};
-module.exports = VerInstrumentoPage;
-
-/***/ }),
-
-/***/ "./src/main/js/pages/ver-musico.js":
+/***/ "./src/main/js/pages/ver-genero.js":
 /*!*****************************************!*\
-  !*** ./src/main/js/pages/ver-musico.js ***!
+  !*** ./src/main/js/pages/ver-genero.js ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -41629,26 +41583,70 @@ var _require2 = __webpack_require__(/*! react */ "./node_modules/react/index.js"
   useState = _require2.useState,
   useEffect = _require2.useEffect;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var VerMusicoPage = function VerMusicoPage() {
+var VerGeneroPage = function VerGeneroPage() {
   var _useParams = useParams(),
     id = _useParams.id;
   var _useState = useState({}),
     _useState2 = _slicedToArray(_useState, 2),
-    musico = _useState2[0],
-    setMusico = _useState2[1];
+    genero = _useState2[0],
+    setGenero = _useState2[1];
   useEffect(function () {
     client({
       method: 'GET',
-      path: '/api/musicos/' + id
+      path: '/api/generos/' + id
     }).done(function (response) {
-      return setMusico(response.entity);
+      return setGenero(response.entity);
     });
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Musico"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, musico.nombre))), /*#__PURE__*/React.createElement(Link, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Genero"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, genero.nombre))), /*#__PURE__*/React.createElement(Link, {
     to: "/"
   }, "Volver"));
 };
-module.exports = VerMusicoPage;
+module.exports = VerGeneroPage;
+
+/***/ }),
+
+/***/ "./src/main/js/pages/ver-idioma.js":
+/*!*****************************************!*\
+  !*** ./src/main/js/pages/ver-idioma.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _require = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
+  Link = _require.Link,
+  useParams = _require.useParams;
+var _require2 = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
+  useState = _require2.useState,
+  useEffect = _require2.useEffect;
+var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
+var VerIdiomaPage = function VerIdiomaPage() {
+  var _useParams = useParams(),
+    id = _useParams.id;
+  var _useState = useState({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    idioma = _useState2[0],
+    setIdioma = _useState2[1];
+  useEffect(function () {
+    client({
+      method: 'GET',
+      path: '/api/idiomas/' + id
+    }).done(function (response) {
+      return setIdioma(response.entity);
+    });
+  }, []);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Idiomas"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, idioma.nombre)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Estado"), /*#__PURE__*/React.createElement("td", null, idioma.estado)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Descripci\xF3n"), /*#__PURE__*/React.createElement("td", null, idioma.descripcion))), /*#__PURE__*/React.createElement(Link, {
+    to: "/"
+  }, "Volver"));
+};
+module.exports = VerIdiomaPage;
 
 /***/ }),
 

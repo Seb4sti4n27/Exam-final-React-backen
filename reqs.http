@@ -1,29 +1,29 @@
-@server = https://stunning-dollop-5676pr7jgrvcp6pg-8080.app.github.dev
+@server = https://scaling-disco-9vgv45gr6qph9pv4-8080.app.github.dev
 ###
-GET {{server}}/api/instrumentos/2
+GET {{server}}/api/idiomas/2
 ###
-POST {{server}}/api/instrumentos
+POST {{server}}/api/idiomas
 Content-Type: application/json
 
-{"nombre": "Quena", "categoria": "Viento", "descripcion": "Como una flauta"}
+{"nombre": "arabe", "estado": "extinto", "descripcion": "Como una flauta"}
 ###
-GET {{server}}/api/musicos
+GET {{server}}/api/generos
 ###
-POST {{server}}/api/musicos
+POST {{server}}/api/generos
 Content-Type: application/json
 
 {"nombre": "Joaquín"}
 
 
 ###
-GET {{server}}/api/bandas
+GET {{server}}/api/editoriales
 
 ###
-GET {{server}}/api/bandas/1
+GET {{server}}/api/editoriales/1
 ###
-GET {{server}}/api/bandas/1/formacion
+GET {{server}}/api/editoriales/1/formacion
 ###
-GET {{server}}/api/integrantes
+GET {{server}}/api/libros
 
 
 
