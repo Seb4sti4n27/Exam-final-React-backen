@@ -19,7 +19,7 @@ const EditarIdiomaPage=()=>{
     const handleSubmit=(evento)=>{
           evento.preventDefault();
           client({
-            method:'GET',
+            method:'PATCH',
             path: '/api/idiomas/'+id,  
             entity: idioma,
             headers: {'Content-Type': 'application/json'}       
